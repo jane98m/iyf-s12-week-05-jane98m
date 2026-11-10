@@ -1,34 +1,49 @@
-// Get elements by ID
+// getElementById - returns single element
 const header = document.getElementById("main-header");
-const form = document.getElementById("contact-form");
+console.log("getElementById:", header);
 
-// Get elements by Class
-const titles = document.getElementsByClassName("title");
+// getElementsByClassName - returns HTMLCollection (live)
 const contents = document.getElementsByClassName("content");
-const navLinks = document.getElementsByClassName("nav-link");
+console.log("getElementsByClassName:", contents);
 
-// Get elements by Tag
+// getElementsByTagName - returns HTMLCollection (live)
 const paragraphs = document.getElementsByTagName("p");
+console.log("getElementsByTagName:", paragraphs);
 
-// Get elements with querySelector
-const firstTitle = document.querySelector(".title");
-const allContents = document.querySelectorAll(".content");
+// querySelector - returns first match
+const firstLink = document.querySelector(".nav-link");
+console.log("querySelector:", firstLink);
 
-// Change text
-firstTitle.textContent = "Updated Article Title";
+// querySelectorAll - returns NodeList (static)
+const allLinks = document.querySelectorAll(".nav-link");
+console.log("querySelectorAll:", allLinks);
 
-// Add highlight class to first paragraph
-paragraphs[0].classList.add("highlight");
+// Practice: Select these elements
+// 1. The h1 element
+const h1 = document.querySelector("h1");
+console.log("1. h1:", h1);
 
-// Change style
-header.style.backgroundColor = "#f0f0f0";
+// 2. All elements with class "content"
+const allContents = document.getElementsByClassName("content");
+console.log("2. All content:", allContents);
 
-// Form submit
-form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    console.log("Name:", name);
-    console.log("Email:", email);
-    alert("Form submitted! Name: " + name);
-});
+// 3. The form with id "contact-form"
+const form = document.getElementById("contact-form");
+console.log("3. Form:", form);
+
+// 4. The email input
+const emailInput = document.getElementById("email");
+console.log("4. Email input:", emailInput);
+
+// 5. All list items in the nav
+const navItems = document.querySelectorAll("nav li");
+console.log("5. Nav list items:", navItems);
+
+// 6. The first .nav-link
+const firstNavLink = document.querySelector(".nav-link");
+console.log("6. First nav-link:", firstNavLink);
+
+// 7. The last paragraph
+const allParagraphs = document.querySelectorAll("p");
+const lastParagraph = allParagraphs[allParagraphs.length - 1];
+console.log("7. Last paragraph:", lastParagraph);
