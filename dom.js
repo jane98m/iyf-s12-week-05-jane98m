@@ -74,3 +74,50 @@ console.log("4. All child li:", allLi);
 const footer = document.querySelector("footer");
 const bodyFromFooter = footer.parentElement;
 console.log("5. Body from footer:", bodyFromFooter);
+
+// ===== Task 9.3: Modifying Content =====
+// Exercise 1: Text Content
+const h1_93 = document.querySelector("h1");
+console.log(h1_93.textContent);
+console.log(h1_93.innerText);
+h1_93.textContent = "New Title";
+
+// Exercise 2: HTML Content
+const article93 = document.querySelector("article");
+console.log(article93.innerHTML);
+article93.innerHTML = `
+  <h2>Updated Article</h2>
+  <p>This is new content.</p>
+`;
+const userInput = `<img src="x" onerror="alert('hacked')">`;
+article93.innerHTML = userInput;
+article93.textContent = userInput;
+
+// Exercise 3: Attributes
+const link93 = document.querySelector(".nav-link");
+console.log(link93.getAttribute("href"));
+console.log(link93.href);
+link93.setAttribute("href", "https://developer.mozilla.org");
+link93.href = "https://developer.mozilla.org";
+console.log(link93.hasAttribute("target"));
+link93.removeAttribute("target");
+const element93 = document.querySelector("[data-id]");
+if (element93) {
+  console.log(element93.dataset.id);
+  console.log(element93.dataset.category);
+  element93.dataset.newAttr = "value";
+}
+
+// Exercise 4: Styles
+const container93 = document.querySelector(".container");
+if (container93) {
+  container93.style.backgroundColor = "#f0f0f0";
+  container93.style.padding = "30px";
+  container93.style.borderRadius = "8px";
+  // Multiple styles (use classes instead when possible!)
+  Object.assign(container93.style, {
+    backgroundColor: "#333",
+    color: "white",
+    padding: "20px"
+  });
+  }
