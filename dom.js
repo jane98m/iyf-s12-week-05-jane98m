@@ -121,3 +121,27 @@ if (container93) {
     padding: "20px"
   });
   }
+
+// ===== Task 9.4: Adding & Removing Elements =====
+// Exercise 1: Creating Elements
+const newParagraph94 = document.createElement("p");
+newParagraph94.textContent = "This is a new paragraph!";
+newParagraph94.className = "content highlight";
+
+// Add to the page
+const article94 = document.querySelector("article");
+if (article94) {
+  article94.appendChild(newParagraph94); // Add at end
+
+  // Insert before another element
+  const firstParagraph94 = article94.querySelector("p");
+  if (firstParagraph94) {
+    article94.insertBefore(newParagraph94, firstParagraph94); // Add before first p
+
+    // Modern insertion methods
+    article94.prepend(newParagraph94); // First child
+    article94.append(newParagraph94); // Last child
+    firstParagraph94.before(newParagraph94); // Before sibling
+    firstParagraph94.after(newParagraph94); // After sibling
+  }
+}
