@@ -350,3 +350,52 @@ myButton.addEventListener("click", handleClick);
 
 // Remove event listener
 myButton.removeEventListener("click", handleClick);
+
+// Exercise 2: Event Types
+const element = myButton;
+const input = document.createElement("input");
+input.placeholder = "Type here";
+document.body.appendChild(input);
+const form = document.createElement("form");
+document.body.appendChild(form);
+
+function handler() {
+  console.log("Event happened");
+}
+
+// Mouse events
+element.addEventListener("click", handler);
+element.addEventListener("dblclick", handler);
+element.addEventListener("mouseenter", handler);
+element.addEventListener("mouseleave", handler);
+element.addEventListener("mousemove", handler);
+
+// Keyboard events
+input.addEventListener("keydown", handler);
+input.addEventListener("keyup", handler);
+input.addEventListener("keypress", handler);
+
+// Form events
+form.addEventListener("submit", handler);
+input.addEventListener("focus", handler);
+input.addEventListener("blur", handler);
+input.addEventListener("input", handler);
+input.addEventListener("change", handler);
+
+// Window events
+window.addEventListener("load", handler);
+window.addEventListener("resize", handler);
+window.addEventListener("scroll", handler);
+
+// Build: Click Counter
+let count = 0;
+
+const counterDisplay = document.createElement("p");
+counterDisplay.textContent = "Count: 0";
+document.body.appendChild(counterDisplay);
+
+const plusBtn = document.createElement("button");
+plusBtn.textContent = "+";
+document.body.appendChild(plusBtn);
+
+const minus
