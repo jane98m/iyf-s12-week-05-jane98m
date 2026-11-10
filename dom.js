@@ -326,3 +326,27 @@ resetBtn.addEventListener("click", function () {
   count = 0;
   updateCounter();
 });
+
+// Exercise 1: Adding Event Listeners
+const myButton = document.createElement("button");
+myButton.textContent = "Click Me";
+document.body.appendChild(myButton);
+
+// Adding event listeners
+myButton.addEventListener("click", function () {
+  console.log("Button clicked!");
+});
+
+// Arrow function
+myButton.addEventListener("click", () => {
+  console.log("Clicked again!");
+});
+
+// Named function (can be removed later)
+function handleClick() {
+  console.log("Handled!");
+}
+myButton.addEventListener("click", handleClick);
+
+// Remove event listener
+myButton.removeEventListener("click", handleClick);
