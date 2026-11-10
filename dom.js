@@ -145,3 +145,25 @@ if (article94) {
     firstParagraph94.after(newParagraph94); // After sibling
   }
 }
+
+// Exercise 2: Removing Elements
+// Remove an element
+const footer94 = document.querySelector("footer");
+if (footer94) footer94.remove();
+
+// Remove child
+const nav94 = document.querySelector("nav");
+if (nav94) {
+  const lastLink94 = nav94.querySelector("li:last-child");
+  if (lastLink94) lastLink94.parentElement.removeChild(lastLink94);
+}
+
+// Clear all children
+// article94 is already created in Exercise 1, so reuse it
+if (article94) {
+  article94.innerHTML = ""; // Simple but rebuilds DOM
+  // OR
+  while (article94.firstChild) {
+    article94.removeChild(article94.firstChild);
+  }
+}
