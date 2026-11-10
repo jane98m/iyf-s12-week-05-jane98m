@@ -467,3 +467,27 @@ document.getElementById("child").addEventListener("click", function() {
 
 // Click on Child - what order?
 // Answer: Child -> Parent -> Grandparent
+// Task 10.3 - Exercise 2: Delegated Task List
+const taskList = document.getElementById("taskList");
+const taskInput = document.getElementById("taskInput");
+const addTaskBtn = document.getElementById("addTaskBtn");
+
+addTaskBtn.addEventListener("click", function() {
+  const text = taskInput.value.trim();
+  if (text === "") return;
+  const li = document.createElement("li");
+  li.innerHTML = text + ' <button class="delete-btn">Delete</button>';
+  taskList.appendChild(li);
+  taskInput.value = "";
+});
+
+taskList.addEventListener("click", function(event) {
+  if (event.target.closest(".delete-btn")) {
+    event.target.closest("li").remove();
+    return;
+  }
+  const li = event.target.closest("li");
+  if (li) {
+    li.classList.toggle("completed");
+  }
+});
