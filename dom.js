@@ -167,3 +167,26 @@ if (article94) {
     article94.removeChild(article94.firstChild);
   }
 }
+
+// Exercise 3: Cloning Elements
+const navItem = document.querySelector(".nav-item");
+const clone = navItem.cloneNode(true);
+clone.querySelector("a").textContent = "New Link";
+document.querySelector(".nav-list").appendChild(clone);
+
+// Build: Add a new nav item dynamically
+function addNavItem(text, href) {
+  const li = document.createElement("li");
+  li.className = "nav-item";
+
+  const link = document.createElement("a");
+  link.className = "nav-link";
+  link.textContent = text;
+  link.href = href;
+
+  li.appendChild(link);
+  document.querySelector(".nav-list").appendChild(li);
+}
+
+addNavItem("Blog", "/blog");
+addNavItem("Portfolio", "/portfolio");
