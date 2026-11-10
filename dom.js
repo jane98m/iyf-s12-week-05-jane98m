@@ -451,3 +451,19 @@ document.addEventListener("keydown", function(event) {
   counterDisplay.textContent = "Count: " + count;
   keyInfo.textContent = "Last key pressed: " + event.key;
 });
+
+// Task 10.3 - Exercise 1: Event Bubbling
+document.getElementById("grandparent").addEventListener("click", function() {
+  console.log("Grandparent clicked");
+});
+
+document.getElementById("parent").addEventListener("click", function() {
+  console.log("Parent clicked");
+});
+
+document.getElementById("child").addEventListener("click", function() {
+  console.log("Child clicked");
+});
+
+// Click on Child - what order?
+// Answer: Child -> Parent -> Grandparent
