@@ -286,3 +286,43 @@ input.addEventListener("change", handler); // On blur after change
 window.addEventListener("load", handler);
 window.addEventListener("resize", handler);
 window.addEventListener("scroll", handler);
+
+// Build: Click Counter
+let count = 0;
+
+const counterDisplay = document.createElement("p");
+counterDisplay.textContent = "Count: 0";
+document.body.appendChild(counterDisplay);
+
+const plusBtn = document.createElement("button");
+plusBtn.textContent = "+";
+document.body.appendChild(plusBtn);
+
+const minusBtn = document.createElement("button");
+minusBtn.textContent = "-";
+document.body.appendChild(minusBtn);
+
+const resetBtn = document.createElement("button");
+resetBtn.textContent = "Reset";
+document.body.appendChild(resetBtn);
+
+function updateCounter() {
+  counterDisplay.textContent = "Count: " + count;
+}
+
+plusBtn.addEventListener("click", function () {
+  count++;
+  updateCounter();
+});
+
+minusBtn.addEventListener("click", function () {
+  if (count > 0) {
+    count--;
+  }
+  updateCounter();
+});
+
+resetBtn.addEventListener("click", function () {
+  count = 0;
+  updateCounter();
+});
