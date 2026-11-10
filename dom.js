@@ -190,3 +190,27 @@ function addNavItem(text, href) {
 
 addNavItem("Blog", "/blog");
 addNavItem("Portfolio", "/portfolio");
+
+// Lesson 11: Events
+const button = document.createElement("button");
+button.textContent = "Click Me";
+document.body.appendChild(button);
+
+// Adding event listeners
+button.addEventListener("click", function () {
+  console.log("Button clicked!");
+});
+
+// Arrow function
+button.addEventListener("click", () => {
+  console.log("Clicked again!");
+});
+
+// Named function (can be removed later)
+function handleClick() {
+  console.log("Handled!");
+}
+button.addEventListener("click", handleClick);
+
+// Remove event listener
+button.removeEventListener("click", handleClick);
