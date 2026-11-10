@@ -398,4 +398,27 @@ const plusBtn = document.createElement("button");
 plusBtn.textContent = "+";
 document.body.appendChild(plusBtn);
 
-const minus
+const minusBtn = document.createElement("button");
+minusBtn.textContent = "-";
+document.body.appendChild(minusBtn);
+
+const resetBtn = document.createElement("button");
+resetBtn.textContent = "Reset";
+document.body.appendChild(resetBtn);
+
+plusBtn.addEventListener("click", function() {
+  count++;
+  counterDisplay.textContent = "Count: " + count;
+});
+
+minusBtn.addEventListener("click", function() {
+  if (count > 0) {
+    count--;
+  }
+  counterDisplay.textContent = "Count: " + count;
+});
+
+resetBtn.addEventListener("click", function() {
+  count = 0;
+  counterDisplay.textContent = "Count: " + count;
+});
