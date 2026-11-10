@@ -491,3 +491,87 @@ taskList.addEventListener("click", function(event) {
     li.classList.toggle("completed");
   }
 });
+// ===== 10.4: Form Handling =====
+const form = document.getElementById("contact-form");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+
+if (form) {
+  // Real-time validation - Name
+  nameInput.addEventListener("input", function(event) {
+    const value = event.target.value.trim();
+    if (value.length < 2) {
+      showError(nameInput, "Name must be at least 2 characters");
+    } else {
+      clearError(nameInput);
+    }
+  });
+
+  // Real-time validation - Email
+  emailInput.addEventListener("input", function(event) {
+    const value = event.target.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(value)) {
+      showError(emailInput, "Please enter a valid email");
+    } else {
+      clearError(emailInput);
+    }
+  });
+
+  // Form submission
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+    console.log("Form data:", data);
+
+    if (isValid(data)) {
+      showSuccess("Form submitted successfully!");
+      form.reset();
+    }
+  });
+}
+
+function showError(input, message) {
+  input.classList.add("error");
+  let errorEl = input.nextElementSibling;
+  if (!errorEl || !errorEl.classList.contains("error-message")) {
+    errorEl = document.createElement("span");
+    errorEl.classList.add("error-message");
+    input.after(errorEl);
+  }
+  errorEl.textContent = message;
+}
+
+function clearError(input) {
+  input.classList.remove("error");
+  const errorEl = input.nextElementSibling;
+  if (errorEl && errorEl.classList.contains("error-message")) {
+    errorEl.remove();
+  }
+}
+
+function isValid(data) {
+  let valid = true;
+  if (!data.name || data.name.trim().length < 2) {
+    showError(nameInput, "Name must be at least 2 characters");
+    valid = false;
+  }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(data.email || "")) {
+    showError(emailInput, "Please enter a valid email");
+    valid = false;
+  }
+  return valid;
+}
+
+function showSuccess(message) {
+  let successEl = document.getElementById("form-success");
+  if (!successEl) {
+    successEl = document.createElement("p");
+    successEl.id = "form-success";
+    form.after(successEl);
+  }
+  successEl.textContent = message;
+  successEl.style.color = "green";
+}
