@@ -422,3 +422,32 @@ resetBtn.addEventListener("click", function() {
   count = 0;
   counterDisplay.textContent = "Count: " + count;
 });
+
+// Task 10.2: Event Object + Keyboard Shortcuts
+
+const keyInfo = document.createElement("p");
+keyInfo.textContent = "Press ArrowUp / ArrowDown or + / - , press R to Reset";
+document.body.appendChild(keyInfo);
+
+document.addEventListener("keydown", function(event) {
+  console.log("Key:", event.key);
+  console.log("Code:", event.code);
+  console.log("Type:", event.type);
+
+  if (event.key === "ArrowUp" || event.key === "+") {
+    count++;
+  }
+
+  if (event.key === "ArrowDown" || event.key === "-") {
+    if (count > 0) {
+      count--;
+    }
+  }
+
+  if (event.key === "r" || event.key === "R") {
+    count = 0;
+  }
+
+  counterDisplay.textContent = "Count: " + count;
+  keyInfo.textContent = "Last key pressed: " + event.key;
+});
