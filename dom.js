@@ -250,3 +250,39 @@ input.addEventListener("change", handler);
 window.addEventListener("load", handler);
 window.addEventListener("resize", handler);
 window.addEventListener("scroll", handler);
+
+// Exercise 2: Event Types
+const element = button;
+const input = document.createElement("input");
+input.placeholder = "Type here";
+document.body.appendChild(input);
+const form = document.createElement("form");
+document.body.appendChild(form);
+
+function handler() {
+  console.log("Event happened");
+}
+
+// Mouse events
+element.addEventListener("click", handler);
+element.addEventListener("dblclick", handler);
+element.addEventListener("mouseenter", handler);
+element.addEventListener("mouseleave", handler);
+element.addEventListener("mousemove", handler);
+
+// Keyboard events
+input.addEventListener("keydown", handler);
+input.addEventListener("keyup", handler);
+input.addEventListener("keypress", handler); // Deprecated
+
+// Form events
+form.addEventListener("submit", handler);
+input.addEventListener("focus", handler);
+input.addEventListener("blur", handler);
+input.addEventListener("input", handler); // Real-time changes
+input.addEventListener("change", handler); // On blur after change
+
+// Window events
+window.addEventListener("load", handler);
+window.addEventListener("resize", handler);
+window.addEventListener("scroll", handler);
